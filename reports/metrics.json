@@ -1,0 +1,605 @@
+{
+  "data": {
+    "raw_loans": 2260668,
+    "loans": 2064692,
+    "snapshot": "2019-03",
+    "observation_end": "2018-11",
+    "funnel": [
+      {
+        "etapa": "base bruta",
+        "contratos": 2260668,
+        "removidos": 0
+      },
+      {
+        "etapa": "dentro da política de crédito",
+        "contratos": 2257919,
+        "removidos": 2749
+      },
+      {
+        "etapa": "pedido individual",
+        "contratos": 2137209,
+        "removidos": 120710
+      },
+      {
+        "etapa": "moradia própria, financiada ou aluguel",
+        "contratos": 2136024,
+        "removidos": 1185
+      },
+      {
+        "etapa": "renda anual positiva",
+        "contratos": 2136024,
+        "removidos": 0
+      },
+      {
+        "etapa": "emitido antes do fim da observação",
+        "contratos": 2064692,
+        "removidos": 71332
+      }
+    ],
+    "event_share": {
+      "censurado": 0.5047,
+      "pré-pagamento": 0.3715,
+      "default": 0.1239
+    },
+    "term_36_share": 0.72
+  },
+  "kaplan_meier": {
+    "term_36": {
+      "cif_default_12m": 0.0487,
+      "cif_default_term": 0.1444,
+      "naive_km_default_term": 0.206,
+      "cif_prepay_term": 0.5623
+    },
+    "term_60": {
+      "cif_default_12m": 0.07,
+      "cif_default_term": 0.27,
+      "naive_km_default_term": 0.397,
+      "cif_prepay_term": 0.5799
+    },
+    "by_group_36m_cif_default_36m": {
+      "income_band": {
+        "até 40 mil": 0.1911,
+        "40–60 mil": 0.1557,
+        "60–80 mil": 0.1389,
+        "80–100 mil": 0.1232,
+        "100–150 mil": 0.1082,
+        "acima de 150 mil": 0.1025
+      },
+      "home": {
+        "financiada": 0.1181,
+        "aluguel": 0.1708,
+        "própria": 0.1515
+      },
+      "grade": {
+        "A": 0.0545,
+        "B": 0.1159,
+        "C": 0.1862,
+        "D": 0.247,
+        "E": 0.3035,
+        "F": 0.3547,
+        "G": 0.4405
+      }
+    },
+    "logrank_chi2": {
+      "income_band · 36m": 5289.4,
+      "income_band · 60m": 2372.5,
+      "home · 36m": 4274.8,
+      "home · 60m": 3026.3,
+      "grade · 36m": 56030.1,
+      "grade · 60m": 26466.9,
+      "prazo · todos": 6795.0
+    }
+  },
+  "critical_period": {
+    "term_36": {
+      "peak_month": 18,
+      "peak_hazard_pct_month": 0.778,
+      "critical_window": [
+        12,
+        30
+      ],
+      "hazard_month_1": 0.124,
+      "hazard_month_6": 0.467,
+      "hazard_month_12": 0.721,
+      "default_share_by_window": {
+        "1–6": 0.1115,
+        "7–12": 0.2261,
+        "13–18": 0.2335,
+        "19–24": 0.188,
+        "25–30": 0.1436,
+        "31–36": 0.0973
+      },
+      "default_share_by_year": {
+        "13–24": 0.4215,
+        "1–12": 0.3376,
+        "25–36": 0.2409
+      }
+    },
+    "term_60": {
+      "peak_month": 14,
+      "peak_hazard_pct_month": 1.072,
+      "critical_window": [
+        11,
+        30
+      ],
+      "hazard_month_1": 0.135,
+      "hazard_month_6": 0.674,
+      "hazard_month_12": 1.04,
+      "default_share_by_window": {
+        "1–6": 0.0827,
+        "7–12": 0.1764,
+        "13–18": 0.1789,
+        "19–24": 0.1499,
+        "25–36": 0.2219,
+        "37–48": 0.129,
+        "49–60": 0.0612
+      },
+      "default_share_by_year": {
+        "13–24": 0.3288,
+        "1–12": 0.2591,
+        "25–36": 0.2219,
+        "37–48": 0.129,
+        "49–60": 0.0612
+      }
+    },
+    "grade_36m_peak_month": {
+      "A": 29,
+      "B": 25,
+      "C": 18,
+      "D": 14,
+      "E": 12,
+      "F": 15,
+      "G": 8
+    },
+    "grade_36m_share_first_year": {
+      "A": 0.2572,
+      "B": 0.2868,
+      "C": 0.3388,
+      "D": 0.3956,
+      "E": 0.455,
+      "F": 0.5035,
+      "G": 0.5873
+    },
+    "hazard_ratio_60_vs_36_median": 1.413
+  },
+  "cox": {
+    "train_vintages": [
+      2007,
+      2015
+    ],
+    "train_loans": 883528,
+    "train_defaults": 151111,
+    "c_index_train": 0.6717,
+    "hazard_ratios": {
+      "home_rent": {
+        "HR": 1.2059,
+        "low": 1.1923,
+        "high": 1.2198,
+        "reading": "Mora de aluguel (vs. imóvel financiado) aumenta o risco de default em 20,6%"
+      },
+      "emp_missing": {
+        "HR": 1.1485,
+        "low": 1.1228,
+        "high": 1.1748,
+        "reading": "Tempo de emprego não informado (vs. informado) aumenta o risco de default em 14,9%"
+      },
+      "dti": {
+        "HR": 1.1363,
+        "low": 1.1291,
+        "high": 1.1436,
+        "reading": "Cada +10 p.p. da renda (comprometimento com dívidas (DTI)) aumenta o risco de default em 13,6%"
+      },
+      "verified": {
+        "HR": 1.1017,
+        "low": 1.0873,
+        "high": 1.1162,
+        "reading": "Renda verificada (vs. não verificada) aumenta o risco de default em 10,2%"
+      },
+      "int_rate": {
+        "HR": 1.0969,
+        "low": 1.0953,
+        "high": 1.0985,
+        "reading": "Cada +1 p.p. ao ano (taxa de juros) aumenta o risco de default em 9,7%"
+      },
+      "inquiries": {
+        "HR": 1.0851,
+        "low": 1.0796,
+        "high": 1.0906,
+        "reading": "Cada +1 consulta (consultas de crédito em 6 meses) aumenta o risco de default em 8,5%"
+      },
+      "home_own": {
+        "HR": 1.0779,
+        "low": 1.0589,
+        "high": 1.0974,
+        "reading": "Imóvel próprio quitado (vs. imóvel financiado) aumenta o risco de default em 7,8%"
+      },
+      "pti": {
+        "HR": 1.0167,
+        "low": 1.0152,
+        "high": 1.0181,
+        "reading": "Cada +1 p.p. da renda (comprometimento com a parcela (PTI)) aumenta o risco de default em 1,7%"
+      },
+      "term_60": {
+        "HR": 1.0154,
+        "low": 1.0026,
+        "high": 1.0283,
+        "reading": "Prazo de 60 meses (60 vs. 36 meses) aumenta o risco de default em 1,5%"
+      },
+      "emp_years": {
+        "HR": 0.9948,
+        "low": 0.9933,
+        "high": 0.9962,
+        "reading": "Cada +1 ano (tempo de emprego) reduz o risco de default em 0,5%"
+      },
+      "log2_income": {
+        "HR": 0.9683,
+        "low": 0.9602,
+        "high": 0.9764,
+        "reading": "Cada renda 2× maior (renda anual) reduz o risco de default em 3,2%"
+      },
+      "revol_util": {
+        "HR": 0.9442,
+        "low": 0.9418,
+        "high": 0.9465,
+        "reading": "Cada +10 p.p. do limite (uso do rotativo) reduz o risco de default em 5,6%"
+      },
+      "past_delinq": {
+        "HR": 0.9385,
+        "low": 0.9263,
+        "high": 0.9508,
+        "reading": "Atraso de 30+ dias nos últimos 2 anos (sim vs. não) reduz o risco de default em 6,2%"
+      },
+      "fico": {
+        "HR": 0.8848,
+        "low": 0.8805,
+        "high": 0.8892,
+        "reading": "Cada +20 pontos (score FICO) reduz o risco de default em 11,5%"
+      }
+    },
+    "univariate_hr": {
+      "int_rate": 1.1201,
+      "term_60": 1.4479,
+      "dti": 1.2455,
+      "pti": 1.0533,
+      "log2_income": 0.8065,
+      "fico": 0.796,
+      "home_rent": 1.3067,
+      "home_own": 1.0387,
+      "emp_years": 0.9849,
+      "emp_missing": 1.3124,
+      "verified": 1.4513,
+      "revol_util": 1.0216,
+      "inquiries": 1.2067,
+      "past_delinq": 1.0493
+    },
+    "hr_by_period": {
+      "int_rate": {
+        "1–6": 1.1645,
+        "7–12": 1.1239,
+        "13–24": 1.09,
+        "25–36": 1.0695,
+        "37–60": 1.0576
+      },
+      "term_60": {
+        "1–6": 0.786,
+        "7–12": 0.9301,
+        "13–24": 1.0207,
+        "25–36": 1.1421
+      },
+      "dti": {
+        "1–6": 1.1503,
+        "7–12": 1.1947,
+        "13–24": 1.1501,
+        "25–36": 1.0898,
+        "37–60": 1.0209
+      },
+      "pti": {
+        "1–6": 0.9951,
+        "7–12": 1.0146,
+        "13–24": 1.0233,
+        "25–36": 1.0171,
+        "37–60": 1.0134
+      },
+      "log2_income": {
+        "1–6": 0.94,
+        "7–12": 0.9535,
+        "13–24": 0.9803,
+        "25–36": 0.9816,
+        "37–60": 0.9504
+      },
+      "fico": {
+        "1–6": 1.0057,
+        "7–12": 0.917,
+        "13–24": 0.8616,
+        "25–36": 0.8551,
+        "37–60": 0.8733
+      },
+      "home_rent": {
+        "1–6": 1.3682,
+        "7–12": 1.2135,
+        "13–24": 1.1881,
+        "25–36": 1.1874,
+        "37–60": 1.1662
+      },
+      "home_own": {
+        "1–6": 1.2424,
+        "7–12": 1.0903,
+        "13–24": 1.0603,
+        "25–36": 1.0591,
+        "37–60": 1.0047
+      },
+      "emp_years": {
+        "1–6": 0.9746,
+        "7–12": 0.9839,
+        "13–24": 0.9974,
+        "25–36": 1.0045,
+        "37–60": 1.0065
+      },
+      "emp_missing": {
+        "1–6": 0.9857,
+        "7–12": 1.0725,
+        "13–24": 1.1494,
+        "25–36": 1.2602,
+        "37–60": 1.2762
+      },
+      "verified": {
+        "1–6": 1.1165,
+        "7–12": 1.1599,
+        "13–24": 1.0899,
+        "25–36": 1.0664,
+        "37–60": 1.0844
+      },
+      "revol_util": {
+        "1–6": 0.954,
+        "7–12": 0.9551,
+        "13–24": 0.9396,
+        "25–36": 0.9413,
+        "37–60": 0.9443
+      },
+      "inquiries": {
+        "1–6": 1.1116,
+        "7–12": 1.0932,
+        "13–24": 1.0873,
+        "25–36": 1.071,
+        "37–60": 1.0474
+      },
+      "past_delinq": {
+        "1–6": 0.9577,
+        "7–12": 0.9581,
+        "13–24": 0.9368,
+        "25–36": 0.929,
+        "37–60": 0.8821
+      }
+    },
+    "schoenfeld_chi2_100k": {
+      "dti": 7.43,
+      "emp_missing": 2.98,
+      "emp_years": 14.15,
+      "fico": 30.05,
+      "home_own": 1.97,
+      "home_rent": 0.5,
+      "inquiries": 7.55,
+      "int_rate": 153.0,
+      "log2_income": 0.09,
+      "past_delinq": 0.1,
+      "pti": 5.92,
+      "revol_util": 2.05,
+      "term_60": 31.25,
+      "verified": 0.06
+    }
+  },
+  "validation": {
+    "test_vintages": [
+      2016,
+      2018
+    ],
+    "test_loans": 1179731,
+    "c_index_test": {
+      "grade da LendingClub": 0.682,
+      "modelo único": 0.6975,
+      "modelo por fase": 0.6994
+    },
+    "default_scale": {
+      "modelo único": 1.2262,
+      "modelo por fase": 1.2065
+    },
+    "recalibration_target_pd12_2016": 0.0618,
+    "by_vintage_error": {
+      "2016_36m_6m": {
+        "erro modelo único recalibrado": -0.0712,
+        "erro modelo por fase recalibrado": -0.0508
+      },
+      "2016_36m_12m": {
+        "erro modelo único recalibrado": -0.0324,
+        "erro modelo por fase recalibrado": -0.0372
+      },
+      "2016_36m_24m": {
+        "erro modelo único recalibrado": 0.0468,
+        "erro modelo por fase recalibrado": 0.0263
+      },
+      "2016_60m_6m": {
+        "erro modelo único recalibrado": 0.0527,
+        "erro modelo por fase recalibrado": 0.1354
+      },
+      "2016_60m_12m": {
+        "erro modelo único recalibrado": 0.0701,
+        "erro modelo por fase recalibrado": 0.0804
+      },
+      "2016_60m_24m": {
+        "erro modelo único recalibrado": 0.1314,
+        "erro modelo por fase recalibrado": 0.1072
+      },
+      "2017_36m_6m": {
+        "erro modelo único recalibrado": -0.0567,
+        "erro modelo por fase recalibrado": 0.0216
+      },
+      "2017_36m_12m": {
+        "erro modelo único recalibrado": 0.0706,
+        "erro modelo por fase recalibrado": 0.0807
+      },
+      "2017_60m_6m": {
+        "erro modelo único recalibrado": -0.0294,
+        "erro modelo por fase recalibrado": 0.106
+      },
+      "2017_60m_12m": {
+        "erro modelo único recalibrado": 0.1148,
+        "erro modelo por fase recalibrado": 0.1367
+      },
+      "2018_36m_6m": {
+        "erro modelo único recalibrado": -0.0998,
+        "erro modelo por fase recalibrado": -0.0557
+      },
+      "2018_60m_6m": {
+        "erro modelo único recalibrado": -0.1811,
+        "erro modelo por fase recalibrado": -0.1393
+      }
+    },
+    "by_vintage_error_original": {
+      "2016_36m_6m": {
+        "erro modelo único": -0.2407,
+        "erro modelo por fase": -0.2103
+      },
+      "2016_36m_12m": {
+        "erro modelo único": -0.2044,
+        "erro modelo por fase": -0.1942
+      },
+      "2016_36m_24m": {
+        "erro modelo único": -0.1285,
+        "erro modelo por fase": -0.1322
+      },
+      "2016_60m_6m": {
+        "erro modelo único": -0.1382,
+        "erro modelo por fase": -0.0535
+      },
+      "2016_60m_12m": {
+        "erro modelo único": -0.1157,
+        "erro modelo por fase": -0.0906
+      },
+      "2016_60m_24m": {
+        "erro modelo único": -0.0473,
+        "erro modelo por fase": -0.0534
+      },
+      "2017_36m_6m": {
+        "erro modelo único": -0.2286,
+        "erro modelo por fase": -0.1491
+      },
+      "2017_36m_12m": {
+        "erro modelo único": -0.1192,
+        "erro modelo por fase": -0.0943
+      },
+      "2017_60m_6m": {
+        "erro modelo único": -0.2051,
+        "erro modelo por fase": -0.0763
+      },
+      "2017_60m_12m": {
+        "erro modelo único": -0.0778,
+        "erro modelo por fase": -0.0405
+      },
+      "2018_36m_6m": {
+        "erro modelo único": -0.2642,
+        "erro modelo por fase": -0.2146
+      },
+      "2018_60m_6m": {
+        "erro modelo único": -0.3299,
+        "erro modelo por fase": -0.2829
+      }
+    },
+    "decile_mae_pp_2017": {
+      "modelo único recalibrado": 0.564,
+      "modelo por fase recalibrado": 0.867,
+      "modelo único (original)": 0.736,
+      "modelo por fase (original)": 1.113
+    },
+    "pd12_2017_pred_vs_obs": {
+      "modelo único recalibrado": [
+        0.0617,
+        0.0568
+      ],
+      "modelo por fase recalibrado": [
+        0.0625,
+        0.0568
+      ],
+      "modelo único (original)": [
+        0.0509,
+        0.0568
+      ],
+      "modelo por fase (original)": [
+        0.0525,
+        0.0568
+      ]
+    },
+    "chosen_model": "modelo único recalibrado"
+  },
+  "provisioning": {
+    "lgd": 0.899,
+    "lgd_defaults_used": 118950,
+    "ead_factor": 1.0139,
+    "default_scale": 1.2262,
+    "backtest": {
+      "2017_11m": {
+        "ead_error": 0.035512,
+        "defaults_pred": 21584,
+        "defaults_real": 20037
+      },
+      "2016_23m": {
+        "ead_error": 0.041108,
+        "defaults_pred": 58275,
+        "defaults_real": 54636
+      }
+    },
+    "book_2018": {
+      "loans": 354076,
+      "volume_usd_mi": 5481.0,
+      "stage1_pct": 0.0412,
+      "stage2_pct": 0.094,
+      "by_term": {
+        "36": {
+          "stage1_pct": 0.0337,
+          "stage2_pct": 0.0669
+        },
+        "60": {
+          "stage1_pct": 0.0529,
+          "stage2_pct": 0.136
+        }
+      },
+      "by_grade": {
+        "A": {
+          "stage1_pct": 0.0178,
+          "stage2_pct": 0.0397
+        },
+        "B": {
+          "stage1_pct": 0.0297,
+          "stage2_pct": 0.0708
+        },
+        "C": {
+          "stage1_pct": 0.0462,
+          "stage2_pct": 0.1099
+        },
+        "D": {
+          "stage1_pct": 0.0752,
+          "stage2_pct": 0.1696
+        },
+        "E": {
+          "stage1_pct": 0.1252,
+          "stage2_pct": 0.2564
+        },
+        "F": {
+          "stage1_pct": 0.1759,
+          "stage2_pct": 0.3363
+        },
+        "G": {
+          "stage1_pct": 0.1849,
+          "stage2_pct": 0.3392
+        }
+      }
+    },
+    "loss_share_first_year": {
+      "36": 0.4718,
+      "60": 0.3385
+    },
+    "loss_peak_month": {
+      "36": 12,
+      "60": 11
+    }
+  }
+}
