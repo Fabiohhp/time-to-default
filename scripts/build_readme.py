@@ -193,6 +193,8 @@ bash scripts/run_all.sh
 O script baixa a base do Kaggle (375 MB, sem precisar de credencial), instala as dependências, roda os testes, executa os notebooks em ordem e regenera este README.
 
 **Stack:** pandas, lifelines, numpy, matplotlib/seaborn, pytest.
+
+**Licença:** código sob a [licença MIT](LICENSE). Os dados pertencem às fontes e seguem os termos delas.
 """
 
 (ROOT / "README.md").write_text(readme)
